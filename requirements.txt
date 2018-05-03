@@ -1,9 +1,9 @@
 Django
+setuptools
 django-debug-toolbar==1.8
 gunicorn==19.4.5
 psycopg2==2.7.3.1
 whitenoise==3.3.1
-https://github.com/pypa/setuptools/archive/master.zip
 https://github.com/thiagopena/geraldo/archive/master.zip
 https://github.com/thiagopena/PySIGNFe/archive/master.zip
 dj-database-url==0.5.*
