@@ -11,20 +11,31 @@ PROJECT_ROOT = os.path.abspath(os.path.dirname(APP_ROOT))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+#SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = os.getenv(
+    'DJANGO_SECRET_KEY',
+    # safe value used for development when DJANGO_SECRET_KEY might not be set
+    '9e4@&tw46$l31)zrqe3wi+-slqm(ruvz&se0^%9#6(_w3ui!c0'
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default=[], cast=Csv())
+#ALLOWED_HOSTS = config('ALLOWED_HOSTS', default=[], cast=Csv())
+ALLOWED_HOSTS = ['*']
+ 
+#if not DEFAULT_DATABASE_URL:
+#    DEFAULT_DATABASE_URL = 'sqlite:///' + os.path.join(APP_ROOT, 'db.sqlite3')
 
-if not DEFAULT_DATABASE_URL:
-    DEFAULT_DATABASE_URL = 'sqlite:///' + os.path.join(APP_ROOT, 'db.sqlite3')
+#DATABASES = {
+#    'default': config('DATABASE_URL', default=DEFAULT_DATABASE_URL, cast=dburl),
+#}
+
+from . import database
 
 DATABASES = {
-    'default': config('DATABASE_URL', default=DEFAULT_DATABASE_URL, cast=dburl),
+    'default': database.config()
 }
-
 
 # Application definition
 
