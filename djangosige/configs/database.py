@@ -1,7 +1,8 @@
 import os
 
 from django.conf import settings
-import dj_database_url
+
+from djangosige.configs import dj_database_url
 
 engines = {
     'sqlite': 'django.db.backends.sqlite3',
