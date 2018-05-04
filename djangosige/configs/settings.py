@@ -45,6 +45,7 @@ DATABASES = {
     'default': database.config()
 }
 
+print("data base: "+DATABASES)
 # Application definition
 
 INSTALLED_APPS = [
