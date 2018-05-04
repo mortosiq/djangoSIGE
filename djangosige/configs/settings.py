@@ -28,7 +28,7 @@ SECRET_KEY = os.getenv(
 DEBUG = True
 
 #ALLOWED_HOSTS = config('ALLOWED_HOSTS', default=[], cast=Csv())
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
  
 #if not DEFAULT_DATABASE_URL:
 #    DEFAULT_DATABASE_URL = 'sqlite:///' + os.path.join(APP_ROOT, 'db.sqlite3')
