@@ -44,8 +44,10 @@ from . import database
 DATABASES = {
     'default': database.config()
 }
-
-print("data base: "+DATABASES)
+try:
+    print("data base: "+str(DATABASES))
+except:
+    pass
 # Application definition
 
 INSTALLED_APPS = [
