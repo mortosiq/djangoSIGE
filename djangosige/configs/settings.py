@@ -1,11 +1,14 @@
 import os
-import django_heroku
-
+try:
+    import django_heroku
+except:
+    pass
 from decouple import config, Csv
 from dj_database_url import parse as dburl
 from .configs import DEFAULT_DATABASE_URL, DEFAULT_FROM_EMAIL, EMAIL_HOST, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, EMAIL_PORT, EMAIL_USE_TLS
 
 APP_ROOT = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+BASE_DIR = APP_ROOT
 PROJECT_ROOT = os.path.abspath(os.path.dirname(APP_ROOT))
 
 
