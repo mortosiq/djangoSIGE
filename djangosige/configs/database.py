@@ -11,8 +11,10 @@ engines = {
 
 
 def config():
-    url = os.getenv('DATABASE_URL', '')
+    url = os.getenv('DATABASE_URL', '') # 'postgres://vfkemsrlcdwsgz:2f04c320d5e00239ab842d69f2b16bc6bc91c55019939b299d14a13bfed00307@ec2-50-19-224-165.compute-1.amazonaws.com:5432/d88p1mohb28tjh'
     if url != "" and not url is None :
+        print("sigeurl"+url)
+        print(dj_database_url.parse(url, ssl_require=True))
         return dj_database_url.parse(url, ssl_require=True)
     else:
 
