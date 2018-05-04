@@ -1,7 +1,7 @@
 import os
 try:
     import django_heroku
-    from decouple import config, Csv
+    # from decouple import config, Csv
 except:
     pass
 from dj_database_url import parse as dburl
