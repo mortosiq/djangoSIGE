@@ -1,4 +1,6 @@
 import os
+import django_heroku
+
 from decouple import config, Csv
 from dj_database_url import parse as dburl
 from .configs import DEFAULT_DATABASE_URL, DEFAULT_FROM_EMAIL, EMAIL_HOST, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, EMAIL_PORT, EMAIL_USE_TLS
@@ -23,7 +25,7 @@ SECRET_KEY = os.getenv(
 DEBUG = True
 
 #ALLOWED_HOSTS = config('ALLOWED_HOSTS', default=[], cast=Csv())
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
  
 #if not DEFAULT_DATABASE_URL:
 #    DEFAULT_DATABASE_URL = 'sqlite:///' + os.path.join(APP_ROOT, 'db.sqlite3')
@@ -33,6 +35,8 @@ ALLOWED_HOSTS = ['*']
 #}
 
 from . import database
+
+
 
 DATABASES = {
     'default': database.config()
@@ -72,6 +76,7 @@ MIDDLEWARE = [
     # Middleware para paginas que exigem login
     'djangosige.middleware.LoginRequiredMiddleware',
 ]
+
 
 ROOT_URLCONF = 'djangosige.urls'
 
@@ -157,3 +162,5 @@ LOGIN_NOT_REQUIRED = (
     r'/login/trocarsenha/',
     r'/logout/',
 )
+
+
