@@ -23,6 +23,7 @@ def config():
     else:
 
         service_name = os.getenv('DATABASE_SERVICE_NAME', '').upper().replace('-', '_')
+        print("service_name=%s"%service_name)
         if service_name:
             engine = engines.get(os.getenv('DATABASE_ENGINE'), engines['sqlite'])
         else:
